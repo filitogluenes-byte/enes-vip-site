@@ -1,0 +1,13 @@
+body { margin: 0; background: #000; overflow: hidden; font-family: sans-serif; }
+#splash-screen {
+    height: 100vh; display: flex; justify-content: center; align-items: center;
+    background: #000; color: #fff; text-shadow: 0 0 10px #00f;
+    animation: fadeOut 4s forwards;
+}
+@keyframes fadeOut { 0% {opacity:1} 80% {opacity:1} 100% {opacity:0; display:none} }
+#output_canvas { width: 100vw; height: 100vh; object-fit: cover; }
+#welcome-msg {
+    position: absolute; top: 10%; left: 50%; transform: translateX(-50%);
+    color: cyan; font-size: 2.5rem; display: none; text-shadow: 0 0 15px cyan;
+    z-index: 10;
+}
