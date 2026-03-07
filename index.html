@@ -2,22 +2,52 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Enes Deva DV - VIP</title>
+    <title>ENES VIP SOCIAL</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <div id="splash-screen">
-        <h1 class="animate-text">ENES DEVA DV SOSYAL GÜVENLİK VIP</h1>
+    <div id="auth-screen" class="screen">
+        <div class="auth-box">
+            <h2>VIP KAYIT / GİRİŞ</h2>
+            <input type="text" id="username" placeholder="Kullanıcı Adı">
+            <input type="password" id="password" placeholder="Şifre">
+            <button onclick="handleLogin()">Giriş Yap / Kayıt Ol</button>
+        </div>
     </div>
 
-    <div id="app-container" style="display: none;">
-        <video id="input_video" style="display: none;"></video>
-        <canvas id="output_canvas"></canvas>
-        <div id="welcome-msg">HOŞ GELDİN ENES DEVA</div>
+    <div id="menu-screen" class="screen" style="display:none;">
+        <nav class="navbar">
+            <button onclick="showSection('chat')">SOHBET</button>
+            <button onclick="showSection('games')">EĞLENCE (VIP)</button>
+            <button onclick="logout()">ÇIKIŞ</button>
+        </nav>
+        
+        <div id="welcome-user"></div>
+
+        <div id="chat-section" class="content-section">
+            <h3>Mesajlaşma</h3>
+            <div class="add-chat">
+                <input type="text" id="chat-with" placeholder="Kişi kullanıcı adı...">
+                <button onclick="startChat()">Sohbet Et</button>
+            </div>
+            <div id="chat-box" class="chat-area">
+                <p>Henüz bir mesaj yok...</p>
+            </div>
+        </div>
+
+        <div id="games-section" class="content-section" style="display:none;">
+            <h3>VIP El Algılama</h3>
+            <div id="app-container">
+                <video id="input_video" style="display:none;"></video>
+                <canvas id="output_canvas"></canvas>
+                <div id="welcome-msg">HOŞ GELDİN VIP ÜYE!</div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
